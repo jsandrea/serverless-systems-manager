@@ -1,1 +1,1 @@
-# serverless-ssm
+# serverless-systems-manager

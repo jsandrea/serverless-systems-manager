@@ -1,0 +1,29 @@
+{
+  "name": "serverless-systems-manager",
+  "version": "1.0.0",
+  "description": "This module is Systems Manager plugin for Serverless Framework",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsandrea/serverless-systems-manager.git"
+  },
+  "keywords": [
+    "serverless",
+    "Systems Manager"
+  ],
+  "author": "Javier Sandrea",
+  "contributors": [
+    {
+      "name": "Javier Sandrea",
+      "url": "https://github.com/jsandrea"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsandrea/serverless-systems-manager/issues"
+  },
+  "homepage": "https://github.com/jsandrea/serverless-systems-manager#readme"
+}
