@@ -19,11 +19,18 @@
     {
       "name": "Javier Sandrea",
       "url": "https://github.com/jsandrea"
+    },
+    {
+      "name": "Sahily Siguenza",
+      "url": "https://github.com/Sahilyexe"
     }
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jsandrea/serverless-systems-manager/issues"
   },
-  "homepage": "https://github.com/jsandrea/serverless-systems-manager#readme"
+  "homepage": "https://github.com/jsandrea/serverless-systems-manager#readme",
+  "peerDependencies": {
+    "serverless": "3 || 4"
+  }
 }
