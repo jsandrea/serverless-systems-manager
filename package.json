@@ -32,5 +32,9 @@
   "homepage": "https://github.com/jsandrea/serverless-systems-manager#readme",
   "peerDependencies": {
     "serverless": "3 || 4"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.21"
   }
 }
