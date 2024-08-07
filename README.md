@@ -6,9 +6,10 @@ This is a serverless plugin that will help you creating the necesary resources f
 Serverless Framework v3 or later is required
 
 ## TOC
- - [Install](#Install)
- - [Configure](#Configure)
-     - [Parameter Store](#Parameter-Store)
+  - [Install](#Install)
+  - [Configure](#Configure)
+    - [Parameter Store](#Parameter-Store) 
+  - [License](#License) 
 
 ## Install
 ```
@@ -105,5 +106,9 @@ custom:
     - name: /name/parameter2
       type: String
       value: Value
-``` 
+```
+
+## License
+
+[MIT](LICENSE)
 
