@@ -71,7 +71,8 @@ custom:
         - type: NoChangeNotification
           version: '1.0'
           attributes:
-            before: "15"
+            after: "15"
+            unit: "Days"
 ```
 
 * Parameter Pattern
