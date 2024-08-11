@@ -1,6 +1,6 @@
 {
   "name": "serverless-systems-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This module is Systems Manager plugin for Serverless Framework",
   "main": "lib/index.js",
   "scripts": {
