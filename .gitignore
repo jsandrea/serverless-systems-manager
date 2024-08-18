@@ -110,6 +110,7 @@ dist
 # Serverless directories
 .serverless/
 serverless.yml
+slsFile*.yml
 
 # FuseBox cache
 .fusebox/
