@@ -1,5 +1,5 @@
 # Serverless Systems Manager
-This is a serverless plugin that will help you creating the necesary resources for AWS Systems Manager. 
+This is a serverless plugin that will help you creating the necessary resources for AWS Systems Manager. 
 
 ## Requierement
 
