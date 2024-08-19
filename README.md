@@ -9,6 +9,7 @@ Serverless Framework v3 or later is required
   - [Install](#Install)
   - [Configure](#Configure)
     - [Parameter Store](#Parameter-Store) 
+    - [Documents](#Documents)
   - [License](#License) 
 
 ## Install
