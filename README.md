@@ -1,5 +1,5 @@
 # Serverless Systems Manager
-This is a serverless plugin that will help you creating the necesary resources for AWS Systems Manager. 
+This is a serverless plugin that will help you creating the necessary resources for AWS Systems Manager. 
 
 ## Requierement
 
@@ -9,6 +9,7 @@ Serverless Framework v3 or later is required
   - [Install](#Install)
   - [Configure](#Configure)
     - [Parameter Store](#Parameter-Store) 
+    - [Documents](#Documents)
   - [License](#License) 
 
 ## Install
@@ -31,7 +32,7 @@ plugins:
 name, type and value are mandatory
 
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter
       type: String
@@ -40,7 +41,7 @@ custom:
 
 * Add Description
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter
       type: String
@@ -52,7 +53,7 @@ custom:
 
 Tier must be 'Advanced'
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter
       type: String
@@ -77,7 +78,7 @@ custom:
 
 * Parameter Pattern
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter
       type: String
@@ -89,7 +90,7 @@ custom:
 
 text or aws:ec2:image, text is default
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter1
       type: String
@@ -99,7 +100,7 @@ custom:
 
 * Define Multiple Parameters
 ```yml 
-custom:
+systemsManager:
   parameters:
     - name: /name/parameter1
       type: String
@@ -107,6 +108,123 @@ custom:
     - name: /name/parameter2
       type: String
       value: Value
+```
+
+### Documents
+
+Creates a Systems Manager (SSM) document in AWS Systems Manager for D
+document types:
+
+ApplicationConfiguration | ApplicationConfigurationSchema | Automation | Automation.ChangeTemplate | ChangeCalendar | CloudFormation | Command | DeploymentStrategy | Package | Policy | ProblemAnalysis | ProblemAnalysisTemplate | Session
+
+
+* Mandatory Properties
+
+name,type,content
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      content:
+        schemaVersion: "2.2"
+        description: "Command Document Example"
+        mainSteps:
+        - action: "aws:runPowerShellScript"
+          name: "example"
+          inputs:
+            runCommand:
+            - "Write-Output {{Message}}"
+```
+
+* Define content in other file
+
+It's recomended to have a seperate file with document's content to improve readability
+
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      content:
+       ${file(testDocumentContent.yml)}
+```
+
+* Define versioning
+
+For versioning porpuse, update Method "NewVersion" will automatically version your doucment
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      updateMethod: NewVersion
+      content:
+       ${file(testDocumentContent.yml)}
+```
+
+* Define Target type
+
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      targetType: /AWS::EC2::Instance
+      content:
+       ${file(testDocumentContent.yml)}
+```
+
+* Define Attachments
+
+If attachments are defined, key and values are mandatory
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      attachments:
+        - key: AttachmentReference
+          name: testFile
+          values: 
+            - "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" 
+      content:
+       ${file(testDocumentContent.yml)}
+```
+
+* Define Required Documents
+
+If requires are defined, name it's mandatory
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      requires:
+        - version: $LATEST
+          name: requiredDocument
+      content:
+       ${file(testDocumentContent.yml)}
+```
+
+* Define multiple documents
+
+It can be created many documents or documents types as you require
+```yml 
+systemsManager:
+  documents:
+    - name: testDocument
+      type: Command
+      content:
+       ${file(testDocumentContent.yml)}
+    - name: testSession
+      type: Session
+      content:
+       ${file(tesSessionContent.yml)}
+    - name: testSession
+      type: Automation
+      content:   
+       ${file(tesAutomationContent.yml)}
 ```
 
 ## License
