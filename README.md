@@ -10,6 +10,7 @@ Serverless Framework v3 or later is required
   - [Configure](#Configure)
     - [Parameter Store](#Parameter-Store) 
     - [Documents](#Documents)
+    - [Maintenance Windows](#maintenance-windows)
   - [License](#License) 
 
 ## Install
@@ -225,6 +226,82 @@ systemsManager:
       type: Automation
       content:   
        ${file(tesAutomationContent.yml)}
+```
+### Maintenance Windows
+Creates a Maintenance Windows in AWS Systems Manager 
+
+* Mandatory Properties
+
+allowUnassociatedTargets,cutoff,duration,name,schedule
+
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+```
+
+* Add Description
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+      description: Some description
+```
+
+* Add EndDate
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+      endDate: "2024-08-31T21:23:11Z"
+```
+
+* Add ScheduleOffset
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+      scheduleOffset: 2
+```
+
+* Add ScheduleTimezone
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+      scheduleTimezone: US/Eastern
+```
+
+* Add StartDate
+```yml 
+systemsManager:
+  maintenanceWindow:
+    - allowUnassociatedTargets: false
+      cutoff: 1
+      duration: 2
+      name: name
+      schedule: "cron(0 30 23 ? * TUE#2 *)"
+      startDate: "2024-08-29T21:23:11Z"
 ```
 
 ## License

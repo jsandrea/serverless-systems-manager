@@ -1,6 +1,12 @@
 # ChangeLog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2024-08-21
+
+### Changed
+- Support for AWS Maintenance Windows
+- Add: MaintenanceWindows support documentation in README
+
 ## [1.1.0] - 2024-08-18
 
 ### Changed
