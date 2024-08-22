@@ -1,6 +1,16 @@
 # ChangeLog
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2024-08-18
+
+### Changed
+- Support for AWS Documents
+- Fix: test for missig SystemsManager property
+- Fix: test for missig parameter property
+- Centralized validations in proper module
+- Fix: replace custop prop for systemsManager in README
+- Add: Documents support documentation in README
+
 ## [1.0.1] - 2024-08-10
 
 ### Changed
